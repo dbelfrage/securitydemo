@@ -4,12 +4,21 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.springframework.data.annotation.Transient;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
+//import org.springframework.data.annotation.Transient;
 
+@Entity
 public class Journal {
-	@org.springframework.data.annotation.Id
-	private String id;
+	//@org.springframework.data.annotation.Id
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	//private String id;
+	private Long id;
 	private String title;
 	private Date created;
 	private String summary;
@@ -26,11 +35,19 @@ public class Journal {
 	
 	Journal(){}
 
-	public String getId() {
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

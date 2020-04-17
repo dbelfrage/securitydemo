@@ -47,7 +47,8 @@ JournalRepository repo;
 	}
 	@PostMapping("/journals")
 	public Journal newJournal(OAuth2Authentication principal, @RequestBody Journal newJournal) throws JsonMappingException, JsonProcessingException {
-		if (principalContainsScope(principal,"dummy")) {
+		if (principalContainsScope(principal,"User.Read")) {
+			LOGGER.info("#######Received and saving  "+newJournal.toString());
 			return repo.save(newJournal);
 		}
 		return null;
