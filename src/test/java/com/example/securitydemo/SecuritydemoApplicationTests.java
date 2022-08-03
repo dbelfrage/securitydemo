@@ -8,6 +8,7 @@ class SecuritydemoApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//some comment
 	}
 
 }
